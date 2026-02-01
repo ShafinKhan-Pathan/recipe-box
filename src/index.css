@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-dot-grid {
+  background-color: #0b0b0b;
+  background-image: radial-gradient(
+    rgba(186, 182, 182, 0.15) 1px,
+    transparent 0.5px
+  );
+  background-size: 24px 24px;
+}
+.input {
+  @apply bg-black/40 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-flamingo;
+}
+.label {
+  @apply text-sm text-gray-300 mb-1 block;
+}

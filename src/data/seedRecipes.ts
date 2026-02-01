@@ -1,0 +1,116 @@
+import type { Recipe } from "./types";
+
+export const seedRecipes: Recipe[] = [
+    {
+        id: "seed-carbonara",
+        name: "Spaghetti alla Carbonara",
+        description: "Iconic Roman dish - creamy and flavorful, no cream!",
+        cuisine: "Italian",
+        difficulty: "Hard",
+        prepTime: 10,
+        cookTime: 15,
+        servings: 4,
+        imageId: "",
+        imageURL:
+            "https://images.unsplash.com/photo-1612874742237-6526221588e3",
+        tags: ["Pasta", "Roman", "Comfort Food", "Quick"],
+        ingredients: [
+            { item: "Spaghetti", quantity: 400, unit: "g" },
+            { item: "Guanciale", quantity: 150, unit: "g" },
+            { item: "Eggs", quantity: 4, unit: "pcs" },
+            { item: "Pecorino Romano", quantity: 100, unit: "g" },
+            { item: "Black pepper", quantity: "to taste", unit: "" },
+        ],
+        instructions: [
+            "Bring water to boil for pasta and salt it.",
+            "Cut guanciale into strips and cook until golden.",
+            "Beat eggs with grated pecorino and black pepper.",
+            "Cook spaghetti al dente and reserve pasta water.",
+            "Combine pasta with guanciale off heat.",
+            "Add egg mixture and pasta water to create creaminess.",
+            "Serve immediately with extra pepper and cheese.",
+        ],
+        notes:
+            "Creaminess comes from egg, cheese, and pasta water — not cream.",
+        isFavorite: false,
+        isShoppingList: false,
+        createdAt: new Date().toISOString(),
+    },
+
+    {
+        id: "seed-mac-cheese",
+        name: "Classic Mac and Cheese",
+        description: "Ultimate American comfort food – creamy and cheesy.",
+        cuisine: "American",
+        difficulty: "Easy",
+        prepTime: 10,
+        cookTime: 20,
+        servings: 6,
+        imageId: "",
+        imageURL:
+            "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686",
+        tags: ["Comfort Food", "Pasta", "Cheese", "Family Favorite"],
+        ingredients: [
+            { item: "Elbow macaroni", quantity: 450, unit: "g" },
+            { item: "Butter", quantity: 60, unit: "g" },
+            { item: "All-purpose flour", quantity: 60, unit: "g" },
+            { item: "Whole milk", quantity: 700, unit: "ml" },
+            { item: "Cheddar cheese", quantity: 300, unit: "g" },
+            { item: "Mozzarella", quantity: 150, unit: "g" },
+            { item: "Dijon mustard", quantity: 1, unit: "tsp" },
+            { item: "Paprika", quantity: 0.5, unit: "tsp" },
+            { item: "Salt & pepper", quantity: "to taste", unit: "" },
+        ],
+        instructions: [
+            "Cook macaroni until al dente.",
+            "Melt butter and whisk in flour.",
+            "Gradually add milk and thicken.",
+            "Lower heat and add cheeses and seasoning.",
+            "Mix macaroni into sauce.",
+            "Serve hot or bake with breadcrumbs.",
+        ],
+        notes:
+            "Use freshly grated cheese for best texture.",
+        isFavorite: false,
+        isShoppingList: false,
+        createdAt: new Date().toISOString(),
+    },
+
+    {
+        id: "seed-chicken-parm",
+        name: "Chicken Parmigiana",
+        description:
+            "Italian-American classic with breaded chicken and melted cheese.",
+        cuisine: "Italian-American",
+        difficulty: "Medium",
+        prepTime: 20,
+        cookTime: 30,
+        servings: 4,
+        imageId: "",
+        imageURL:
+            "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8",
+        tags: ["Chicken", "Cheese", "Comfort Food", "Dinner"],
+        ingredients: [
+            { item: "Chicken breasts", quantity: 4, unit: "pcs" },
+            { item: "Flour", quantity: 100, unit: "g" },
+            { item: "Eggs", quantity: 2, unit: "pcs" },
+            { item: "Breadcrumbs", quantity: 150, unit: "g" },
+            { item: "Parmesan cheese", quantity: 50, unit: "g" },
+            { item: "Mozzarella", quantity: 250, unit: "g" },
+            { item: "Marinara sauce", quantity: 500, unit: "ml" },
+        ],
+        instructions: [
+            "Preheat oven to 200°C.",
+            "Bread chicken using flour, eggs, and breadcrumbs.",
+            "Pan fry chicken until golden.",
+            "Top with marinara and cheese.",
+            "Bake until cheese melts.",
+            "Garnish with basil and serve.",
+        ],
+        notes:
+            "Can be baked instead of fried for a lighter version.",
+        isFavorite: false,
+        isShoppingList: false,
+        createdAt: new Date().toISOString(),
+    },
+];
