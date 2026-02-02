@@ -12,6 +12,7 @@ const ShoppingList = lazy(() => import("./pages/ShoppingList"));
 import NavBar from "./components/NavBar";
 import { useEffect } from "react";
 import { seedRecipes } from "./data/seedRecipes";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   // This useEffect helps to seed the recipes for the first time.
   useEffect(() => {
@@ -22,25 +23,26 @@ function App() {
   }, []);
   return (
     <Router>
-      <div className="bg-dot-grid min-h-screen text-white">
-        <main className="pb-20 md:pb-0">
-          <div className="max-w-[1200px] mx-auto">
-            <NavBar />
-            <Suspense
-              fallback={<div className="p-6 text-center">Loading...</div>}
-            >
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/create" element={<CreateRecipe />} />
-                <Route path="/browse" element={<BrowseRecipes />} />
-                <Route path="/recipe/:id" element={<RecipeDetail />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/shopping-list" element={<ShoppingList />} />
-              </Routes>
-            </Suspense>
-          </div>
-        </main>
-      </div>
+      <ScrollToTop />
+        <div className="bg-dot-grid min-h-screen text-white">
+          <main className="pb-20 md:pb-0">
+            <div className="max-w-[1200px] mx-auto">
+              <NavBar />
+              <Suspense
+                fallback={<div className="p-6 text-center">Loading...</div>}
+              >
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/create" element={<CreateRecipe />} />
+                  <Route path="/browse" element={<BrowseRecipes />} />
+                  <Route path="/recipe/:id" element={<RecipeDetail />} />
+                  <Route path="/favorites" element={<Favorites />} />
+                  <Route path="/shopping-list" element={<ShoppingList />} />
+                </Routes>
+              </Suspense>
+            </div>
+          </main>
+        </div>
     </Router>
   );
 }
