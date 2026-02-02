@@ -27,7 +27,11 @@ const RecipeDetail = () => {
     );
 
     localStorage.setItem("recipes", JSON.stringify(updated));
-    alert("Added to shopping list !");
+    // updateRecipe helps to check add to shopping button state.
+    const updatedRecipe = updated.find((recipe) => recipe.id === id);
+    setRecipe(updatedRecipe || null);
+    window.dispatchEvent(new Event("shopping-updated"));
+    // alert("Added to shopping list !");
   };
   return (
     <div className="max-w-6xl mx-auto p-4 space-y-8">
@@ -72,11 +76,16 @@ const RecipeDetail = () => {
           <section className="flex">
             <button
               type="button"
-              aria-label={`Add ${recipe.name} to shopping list`}
-              className="bg-flamingo w-full md:w-auto text-black font-semibold px-8 py-2 rounded-lg hover:opacity-90 transition"
+              aria-label={
+                recipe.isShoppingList
+                  ? `${recipe.name} already in shopping list`
+                  : `Add ${recipe.name} to shopping list`
+              }
+              disabled={recipe.isShoppingList}
+              className={`w-full md:w-auto font-semibold px-8 py-2 rounded-lg transition ${recipe.isShoppingList ? "bg-gray-600 text-gray-300 cursor-not-allowed" : "bg-flamingo text-black hover:opacity-90"}`}
               onClick={() => addToShoppingList(recipe.id)}
             >
-              Add to Shopping
+              {recipe.isShoppingList ? "Added to Shopping" : "Add to Shopping"}
             </button>
           </section>
         </div>

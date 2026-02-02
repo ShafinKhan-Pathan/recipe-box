@@ -65,6 +65,7 @@ const ShoppingList = () => {
     );
 
     localStorage.setItem("recipes", JSON.stringify(updated));
+    window.dispatchEvent(new Event("shopping-updated"));
     loadShoppingRecipes();
   };
   const loadShoppingRecipes = () => {
