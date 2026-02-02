@@ -1,11 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { navItems } from "../data/navItems";
 import { useEffect, useState } from "react";
 import type { Recipe } from "../data/types";
 
 const NavBar = () => {
   const [shoppingCount, setShoppingCount] = useState(0);
-  const location = useLocation();
   // This function helps to get the shopping cart length.
   const loadShoppingCount = () => {
     const stored: Recipe[] = JSON.parse(
