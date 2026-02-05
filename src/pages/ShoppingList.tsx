@@ -22,7 +22,11 @@ const ShoppingList = () => {
       setTotals([]);
     }
   }, [selectedRecipes]);
-
+  const normalizeQuantity = (value: number | string) => {
+    if (typeof value === "number") return value;
+    const num = Number(value);
+    return isNaN(num) ? value : num;
+  };
   const calculateTotals = () => {
     const result = selectedRecipes
       .flatMap((recipe) =>
@@ -32,8 +36,7 @@ const ShoppingList = () => {
         })),
       )
       .reduce((acc: TotalIngredient[], ing) => {
-        const qty =
-          typeof ing.quantity === "number" ? ing.quantity : ing.quantity;
+        const qty = normalizeQuantity(ing.quantity);
 
         const found = acc.find(
           (i) => i.item.toLowerCase() === ing.item.toLowerCase(),
