@@ -96,7 +96,10 @@ const RecipeDetail = () => {
           <ul className="space-y-2 text-gray-300">
             {recipe.ingredients.map((ing, i) => (
               <li key={i}>
-                • {ing.item} – {ing.quantity} {ing.unit}
+                • {ing.item} –{" "}
+                {typeof ing.quantity === "number"
+                  ? `${ing.quantity} ${ing.unit}`
+                  : `${ing.quantity}`}
               </li>
             ))}
           </ul>
