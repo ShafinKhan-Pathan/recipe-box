@@ -35,6 +35,6 @@ export interface Recipe {
 export interface TotalIngredient {
   item: string;
   unit: string;
-  quantity: number;
+  quantity: number | string;
   count: number;
 }

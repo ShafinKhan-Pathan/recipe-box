@@ -32,14 +32,17 @@ const ShoppingList = () => {
         })),
       )
       .reduce((acc: TotalIngredient[], ing) => {
-        const qty = Number(ing.quantity) || 0;
+        const qty =
+          typeof ing.quantity === "number" ? ing.quantity : ing.quantity;
 
         const found = acc.find(
-          (i) => i.item === ing.item && i.unit === ing.unit,
+          (i) => i.item.toLowerCase() === ing.item.toLowerCase(),
         );
 
         if (found) {
-          found.quantity += qty;
+          if (typeof qty === "number" && typeof found.quantity === "number") {
+            found.quantity += qty;
+          }
           found.count += 1;
         } else {
           acc.push({
@@ -82,7 +85,7 @@ const ShoppingList = () => {
     <div className="flex justify-between items-center p-2 bg-black/40 border border-white/10 rounded-lg">
       <span className="text-gray-300">{item}</span>
       <span className="text-gray-400 w-28 text-right">
-        {quantity} {unit}
+        {typeof quantity === "string" ? quantity : `${quantity} ${unit}`}
       </span>
     </div>
   );
