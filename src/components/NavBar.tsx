@@ -20,7 +20,7 @@ const NavBar = () => {
     loadShoppingCount();
     window.addEventListener("shopping-updated", loadShoppingCount)
     return () => {
-      window.removeEventListener("shopping-update", loadShoppingCount)
+      window.removeEventListener("shopping-updated", loadShoppingCount)
     }
   }, []);
 
